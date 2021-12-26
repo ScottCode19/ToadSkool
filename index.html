@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToadSkool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="overlay-container">
+      <h1 class="welcome-title">Welcome to ToadSkool!</h1>
+      <p class="welcome-text">
+        ToadSkool is a mushroom ID game that's as close to real mushroom hunting
+        as possible without getting your shoes dirty.
+      </p>
+      <span class="disclaimer">
+        Remember, some mushrooms are deadly so
+        <p class="never">never</p>
+        eat a mushroom unless you are 100% sure of what it is and have
+        identified it using multiple sources. If you eat something and get sick,
+        its on you.
+      </span>
+      <button class="btn-play">Let's play!</button>
+    </div>
+    <div class="app-container">
+      <header>
+        <h1 class="main-title">🍄 ToadSkool &copy;🍄</h1>
+      </header>
+      <div class="main-container">
+        <div class="look-container">
+          <h2 class="label-btns-title">Look</h2>
+          <button class="btn btn-cap btn-look">Look at the cap</button>
+          <button class="btn btn-under-cap btn-look">Look under the cap</button>
+          <button class="btn btn-stem btn-look">Look at the stem</button>
+        </div>
+        <div class="img-container">
+          <img
+            src="Images/Test/Mushroom.jpg"
+            alt="No picture available sorry 🙄"
+            class="main-image"
+          />
+        </div>
+        <div class="actions-container">
+          <h2 class="label-btns-title">Actions</h2>
+          <button class="btn btn-actions btn-feel">Feel it</button>
+          <button class="btn btn-actions btn-bruise">Bruise it</button>
+          <button class="btn btn-actions btn-dig">Dig it up</button>
+          <button class="btn btn-actions btn-cut">Cut it up</button>
+        </div>
+        <div class="answer-container">
+          <div class="answer-display">
+            <div class="answer-name"></div>
+            <div class="answer-info"></div>
+          </div>
+          <button class="btn-reveal-answer">Reveal answer</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
