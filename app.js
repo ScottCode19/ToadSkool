@@ -1196,8 +1196,9 @@ let nextMushroom = false;
 
 //initialisation
 const init = function () {
-  appContainer.style.opacity = 0.1;
-  appContainer.style.zIndex = -1;
+  // appContainer.style.opacity = 0.1;
+  // appContainer.style.zIndex = -1;
+  // TODO - UNCOMMENT OPACITY AND ZINDEX
   titleWelcome.textContent = "🍄 Welcome to ToadSkool 🍄";
   mushroomImage.setAttribute("src", "images/Fly Agaric/cap.jpg");
 };
@@ -1207,13 +1208,14 @@ const loadRandom = function () {
   currentMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   // set the initial image to a random from multiple
   mushroomImage.setAttribute("src", currentMushroom.generalImages[0]);
-  answerName.style.display = "none";
-  answerInfo.style.display = "none";
+  // answerName.style.display = "none";
+  // answerInfo.style.display = "none";
+  ///TODO POSSIBLY REMOVE COMMENTS
 };
 /////////event handlers////////////////////////
 
 btnPlay.addEventListener("click", function () {
-  appContainer.style.opacity = 1;
+  // appContainer.style.opacity = 1;
   appContainer.style.zIndex = 1;
   overlayContainer.remove();
   loadRandom();
@@ -1273,15 +1275,15 @@ btnCut.addEventListener("click", function () {
 });
 
 btnRevealAnswer.addEventListener("click", function () {
-  answerName.style.display = "block";
-  answerInfo.style.display = "block";
+  // answerName.style.display = "block";
+  // answerInfo.style.display = "block";
   if (nextMushroom) {
     nextMushroom = !nextMushroom;
     btnRevealAnswer.textContent = "Reveal Answer";
     answerName.textContent = "";
     answerInfo.textContent = "";
-    answerName.style.backgroundColor = "";
-    answerInfo.style.backgroundColor = "";
+    // answerName.style.backgroundColor = "";
+    // answerInfo.style.backgroundColor = "";
 
     loadRandom();
   } else {
@@ -1304,8 +1306,8 @@ btnRevealAnswer.addEventListener("click", function () {
     answerInfo.textContent = `This mushroom ${edibilityDetail}`;
     btnRevealAnswer.textContent = "Next Mushroom!";
     nextMushroom = !nextMushroom;
-    answerName.style.backgroundColor = "#552700";
-    answerInfo.style.backgroundColor = "#552700";
+    // answerName.style.backgroundColor = "#552700";
+    // answerInfo.style.backgroundColor = "#552700";
   }
 });
 /////////////////////main/////////////////////////
