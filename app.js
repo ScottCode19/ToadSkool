@@ -128,7 +128,7 @@ const fieldMushroom = new Mushroom(
 const beefsteakFungus = new Mushroom(
   ["Beefsteak Fungus"],
   "Fistulina hepatica",
-  ["onTree", "Oak", "Sweet Chestnut"],
+  ["woods", "Oak", "Sweet Chestnut"],
   ["Images/Habitat/oak woodland.jpg"],
   ["Images/Beefsteak Fungus/multiple.jpg"],
   ["Images/Beefsteak Fungus/cap.jpg"],
@@ -517,7 +517,7 @@ const horseMushroom = new Mushroom(
 
 const greyOyster = new Mushroom(
   ["Grey Oyster"],
-  "	Pleurotus ostreatus",
+  "Pleurotus ostreatus",
   ["woods", "beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Grey Oyster/multiple.jpg"],
@@ -1170,7 +1170,9 @@ const mushrooms = [
 const mushroomImage = document.querySelector(".main-image");
 const titleWelcome = document.querySelector(".welcome-title");
 const answerContainer = document.querySelector(".answer-container");
+const answerDisplay = document.querySelector(".answer-display");
 const answerName = document.querySelector(".answer-name");
+const answerLatin = document.querySelector(".answer-latin");
 const answerInfo = document.querySelector(".answer-info");
 const mainContainer = document.querySelector(".main-container");
 const overlayContainer = document.querySelector(".overlay-container");
@@ -1199,7 +1201,7 @@ const init = function () {
   // appContainer.style.opacity = 0.1;
   // appContainer.style.zIndex = -1;
   // TODO - UNCOMMENT OPACITY AND ZINDEX
-  titleWelcome.textContent = "🍄 Welcome to ToadSkool 🍄";
+  answerDisplay.style.display = "none";
   mushroomImage.setAttribute("src", "images/Fly Agaric/cap.jpg");
 };
 
@@ -1208,8 +1210,6 @@ const loadRandom = function () {
   currentMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   // set the initial image to a random from multiple
   mushroomImage.setAttribute("src", currentMushroom.generalImages[0]);
-  // answerName.style.display = "none";
-  // answerInfo.style.display = "none";
   ///TODO POSSIBLY REMOVE COMMENTS
 };
 /////////event handlers////////////////////////
@@ -1275,15 +1275,16 @@ btnCut.addEventListener("click", function () {
 });
 
 btnRevealAnswer.addEventListener("click", function () {
-  // answerName.style.display = "block";
-  // answerInfo.style.display = "block";
   if (nextMushroom) {
     nextMushroom = !nextMushroom;
     btnRevealAnswer.textContent = "Reveal Answer";
     answerName.textContent = "";
     answerInfo.textContent = "";
-    // answerName.style.backgroundColor = "";
-    // answerInfo.style.backgroundColor = "";
+    answerDisplay.style.display = "none";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
 
     loadRandom();
   } else {
@@ -1302,9 +1303,15 @@ btnRevealAnswer.addEventListener("click", function () {
         "likely won't poison you (unless you're one of those unlucky people who react to it) but it doesnt taste nice anyway 🤮";
     }
 
-    answerName.textContent = `${currentMushroom.commonNames[0]} (${currentMushroom.latinName})`;
+    answerName.textContent = `${currentMushroom.commonNames[0]}`;
+    answerLatin.textContent = `(${currentMushroom.latinName})`;
     answerInfo.textContent = `This mushroom ${edibilityDetail}`;
+    answerDisplay.style.display = "block";
     btnRevealAnswer.textContent = "Next Mushroom!";
+    window.scrollTo({
+      top: 1000,
+      behavior: "smooth",
+    });
     nextMushroom = !nextMushroom;
     // answerName.style.backgroundColor = "#552700";
     // answerInfo.style.backgroundColor = "#552700";
