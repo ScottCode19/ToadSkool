@@ -1366,8 +1366,7 @@ const init = function () {
 
 const loadRandom = function () {
   //set currentMushroom
-  currentMushroom = yellowMorel;
-  //mushrooms[Math.floor(Math.random() * mushrooms.length)];
+  currentMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   // set the initial image to a random from multiple
   mushroomImage.setAttribute("src", currentMushroom.generalImages[0]);
   ///TODO POSSIBLY REMOVE COMMENTS
