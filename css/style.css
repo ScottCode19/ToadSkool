@@ -53,14 +53,14 @@ button {
 
 .welcome-title {
   text-align: center;
-  padding-bottom: 1em;
+
   font-size: 5em;
 }
 
 .welcome-text,
 .disclaimer {
-  font-size: 2em;
-  margin: 1em;
+  font-size: 1.8em;
+  margin: 0.5em 0.5em;
 }
 
 .never {
@@ -154,22 +154,31 @@ header {
 .answer-display {
   display: flex;
   flex-direction: column;
-  background-color: #552700;
-  color: white;
-  text-align: center;
+  background-color: #bba999;
+  color: #004400;
+  border: 1em solid #004400;
   border-radius: 3em;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .answer-name {
   padding: 1em 0.5em 0 0.5em;
   font-size: 3em;
+  font-weight: 700;
 }
 
 .answer-latin {
-  font-size: 2em;
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+.answer-other-names {
+  font-size: 1.5em;
 }
 
 .answer-info {
-  font-size: 2em;
-  padding: 0.5em;
+  font-size: 1.8em;
+  padding: 1em;
+  text-align: left;
 }

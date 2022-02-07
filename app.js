@@ -6,6 +6,7 @@ function Mushroom(
   commonNames,
   latinName,
   habitat,
+  treeType,
   habitatImages,
   generalImages,
   capImages,
@@ -18,7 +19,8 @@ function Mushroom(
   sporePrintImages,
   feel,
   frequency,
-  monthsAvaiable,
+  seasonStart,
+  seasonEnd,
   edilbleRaw,
   edibleCooked,
   poisonous,
@@ -35,6 +37,7 @@ function Mushroom(
   this.commonNames = commonNames;
   this.latinName = latinName;
   this.habitat = habitat;
+  this.treeType = treeType;
   this.habitatImages = habitatImages;
   this.generalImages = generalImages;
   this.capImages = capImages;
@@ -47,7 +50,8 @@ function Mushroom(
   this.sporePrintImages = sporePrintImages;
   this.feel = feel;
   this.frequency = frequency;
-  this.monthsAvaiable = monthsAvaiable;
+  this.seasonStart = seasonStart;
+  this.seasonEnd = seasonEnd;
   this.edilbleRaw = edilbleRaw;
   this.edibleCooked = edibleCooked;
   this.poisonous = poisonous;
@@ -67,7 +71,8 @@ function Mushroom(
 const flyAgaric = new Mushroom(
   ["Fly Agaric"],
   "Amanita muscaria",
-  ["woods", "birch"],
+  ["mixed woodland"],
+  ["birch"],
   ["Images/Habitat/birch woodland.jpg"],
   ["Images/Fly Agaric/multiple.jpg"],
   ["Images/Fly Agaric/cap.jpg"],
@@ -80,13 +85,14 @@ const flyAgaric = new Mushroom(
   ["Images/Fly Agaric/sporeprint.jpg"],
   "pretty normal",
   "common",
-  ["August", "Sept", "Oct", "Nov", "Dec"],
+  "August",
+  "Dec",
   false,
   false,
   true,
   false,
   true,
-  ["theBlusher, greySpottedAmanita, pantherCap, JewelledAmanita"],
+  ["theBlusher", "greySpottedAmanita", "pantherCap", "gemmedAmanita"],
   false,
   false,
   false,
@@ -97,7 +103,8 @@ const flyAgaric = new Mushroom(
 const fieldMushroom = new Mushroom(
   ["Field Mushroom"],
   "Agaricus campestris",
-  ["grasslands", "meadows", "fields", "parks"],
+  ["pastures", "meadows", "lawns", "road verges", "parks"],
+  [],
   ["Images/Habitat/grasslands.jpg"],
   ["Images/Field Mushroom/multiple.jpg"],
   ["Images/Field Mushroom/cap.jpg"],
@@ -110,13 +117,14 @@ const fieldMushroom = new Mushroom(
   ["Images/Field Mushroom/sporeprint.jpg"],
   "pretty normal",
   "common",
-  ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+  "May",
+  "Nov",
   false,
   true,
   false,
   false,
   false,
-  ["yellowStainer, agaricusPilatianus"],
+  ["yellowStainer"],
   true,
   false,
   false,
@@ -126,9 +134,10 @@ const fieldMushroom = new Mushroom(
 );
 
 const beefsteakFungus = new Mushroom(
-  ["Beefsteak Fungus"],
+  ["Beefsteak Fungus", "Ox-tongue fungus"],
   "Fistulina hepatica",
-  ["woods", "Oak", "Sweet Chestnut"],
+  ["woodland"],
+  ["oak", "sweet chestnut"],
   ["Images/Habitat/oak woodland.jpg"],
   ["Images/Beefsteak Fungus/multiple.jpg"],
   ["Images/Beefsteak Fungus/cap.jpg"],
@@ -141,7 +150,8 @@ const beefsteakFungus = new Mushroom(
   [],
   "pretty normal",
   "common",
-  ["Aug", "Sep", "Oct", "Nov"],
+  "Aug",
+  "Nov",
   true,
   true,
   false,
@@ -159,6 +169,7 @@ const theBlusher = new Mushroom(
   ["The Blusher"],
   "Amanita rubescens",
   ["mixed woodland"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/The Blusher/multiple.jpg"],
   ["Images/The Blusher/cap.jpg"],
@@ -171,13 +182,14 @@ const theBlusher = new Mushroom(
   [],
   "pretty normal",
   "very common",
-  ["Months", "Available"],
+  "May",
+  "Nov",
   false,
   true,
   false,
   false,
   false,
-  ["Panther Cap, Grey Spotted Amanita"],
+  ["pantherCap", "greySpottedAmanita"],
   true,
   false,
   false,
@@ -188,7 +200,8 @@ const theBlusher = new Mushroom(
 const theCharcoalBurner = new Mushroom(
   ["The Charcoal Burner"],
   "Russula cyanoxantha",
-  ["woods", "beech"],
+  ["mixed and broadleaf woodland"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/The Charcoal Burner/general.jpg"],
   ["Images/The Charcoal Burner/cap.jpg"],
@@ -201,13 +214,14 @@ const theCharcoalBurner = new Mushroom(
   [],
   "firm and thick",
   "common",
-  ["Jul", "Aug", "Sept", "Oct"],
+  "Jul",
+  "Oct",
   true,
   true,
   false,
   false,
   false,
-  [],
+  ["Other Russulas"],
   false,
   false,
   false,
@@ -218,7 +232,15 @@ const theCharcoalBurner = new Mushroom(
 const commonMorel = new Mushroom(
   ["Common Morel", "Grey Morel"],
   "Morchella vulgaris",
-  ["woods", "pastures", "gardens", "wasteland", "dunes"],
+  [
+    "woodland",
+    "pastures",
+    "gardens",
+    "wasteland",
+    "verges",
+    "even on sand dunes",
+  ],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Common Morel/multiple.jpg"],
   ["Images/Common Morel/cap.jpg"],
@@ -231,13 +253,14 @@ const commonMorel = new Mushroom(
   [],
   "thin and hollow",
   "uncommon",
-  ["Mar", "Apr", "May"],
+  "Mar",
+  "May",
   false,
   true,
   false,
   false,
   false,
-  ["Yellow Morel, False Morel, Black Morel"],
+  ["yellowMorel", "falseMorel", "blackMorel"],
   false,
   false,
   false,
@@ -248,7 +271,8 @@ const commonMorel = new Mushroom(
 const chanterelle = new Mushroom(
   ["Chanterelle"],
   "Cantharellus cibarius",
-  ["woods", "beech", "birch"],
+  ["all types of woodland"],
+  ["beech", "birch"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Chanterelle/multiple.jpg"],
   ["Images/Chanterelle/cap.jpg"],
@@ -261,7 +285,8 @@ const chanterelle = new Mushroom(
   [],
   "pretty normal",
   "common",
-  ["May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov"],
+  "May",
+  "Nov",
   true,
   true,
   false,
@@ -278,7 +303,8 @@ const chanterelle = new Mushroom(
 const deathCap = new Mushroom(
   ["Death Cap"],
   "Amanita phalloides",
-  ["woods", "oak"],
+  ["mixed woodland"],
+  ["oak", "beech", "other deciduous"],
   ["Images/Habitat/oak woodland.jpg"],
   ["Images/Death Cap/multiple.jpg"],
   ["Images/Death Cap/cap.jpg"],
@@ -291,7 +317,8 @@ const deathCap = new Mushroom(
   [],
   "pretty normal",
   "uncommon",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   false,
   true,
@@ -308,7 +335,8 @@ const deathCap = new Mushroom(
 const inkyMushroom = new Mushroom(
   ["Inky Mushroom"],
   "Agaricus moelleri",
-  ["woods", "grassland"],
+  ["woodland", "occasionally on grasslands"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Inky Mushroom/multiple.jpg"],
   ["Images/Inky Mushroom/cap.jpg"],
@@ -321,7 +349,8 @@ const inkyMushroom = new Mushroom(
   [],
   "pretty normal",
   "common",
-  ["Jun", "Jul", "Aug", "Sep", "Oct"],
+  "Jun",
+  "Oct",
   false,
   false,
   true,
@@ -338,7 +367,8 @@ const inkyMushroom = new Mushroom(
 const yellowStainer = new Mushroom(
   ["Yellow Stainer"],
   "Agaricus xanthodermus",
-  ["grassland", "hedgerows"],
+  ["grasslands", "hedge rows"],
+  [],
   ["Images/Habitat/grasslands.jpg"],
   ["Images/Yellow Stainer/multiple.jpg"],
   ["Images/Yellow Stainer/cap.jpg"],
@@ -351,7 +381,8 @@ const yellowStainer = new Mushroom(
   [],
   "pretty normal",
   "common",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   false,
   true,
@@ -368,7 +399,8 @@ const yellowStainer = new Mushroom(
 const gemmedAmanita = new Mushroom(
   ["Gemmed Amanita", "Jewelled Amanita"],
   "Amanita gemmata",
-  ["woods", "conifer"],
+  ["conifer woodland"],
+  [],
   ["Images/Habitat/conifer woodland.jpg"],
   ["Images/Gemmed Amanita/multiple.jpg"],
   ["Images/Gemmed Amanita/cap.jpg"],
@@ -381,7 +413,8 @@ const gemmedAmanita = new Mushroom(
   [],
   "pretty normal",
   "uncommon",
-  ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+  "May",
+  "Nov",
   false,
   false,
   true,
@@ -398,7 +431,8 @@ const gemmedAmanita = new Mushroom(
 const pantherCap = new Mushroom(
   ["Panther Cap"],
   "Amanita pantherina",
-  ["woods", "beech"],
+  ["woods"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Panther Cap/multiple.jpg"],
   ["Images/Panther Cap/cap.jpg"],
@@ -411,7 +445,8 @@ const pantherCap = new Mushroom(
   [],
   "pretty normal",
   "uncommon",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   false,
   true,
@@ -428,7 +463,8 @@ const pantherCap = new Mushroom(
 const falseChanterelle = new Mushroom(
   ["False Chanterelle"],
   "Hygrophoropsis aurantiaca",
-  ["woods", "conifer"],
+  ["conifer woodland"],
+  [],
   ["Images/Habitat/conifer woods.jpg"],
   ["Images/False Chanterelle/main.jpg"],
   ["Images/False Chanterelle/cap.jpg"],
@@ -441,7 +477,8 @@ const falseChanterelle = new Mushroom(
   [],
   "like any old mushroom",
   "common",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   false,
   false,
@@ -458,7 +495,8 @@ const falseChanterelle = new Mushroom(
 const destroyingAngel = new Mushroom(
   ["Destroying Angel"],
   "Amanita virosa",
-  ["woods", "mixed"],
+  ["mixed woodland"],
+  ["deciduous"],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Destroying Angel/general.jpg"],
   ["Images/Destroying Angel/cap.jpg"],
@@ -471,7 +509,8 @@ const destroyingAngel = new Mushroom(
   [],
   "like any old mushroom",
   "rare",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   false,
   true,
@@ -489,7 +528,8 @@ const horseMushroom = new Mushroom(
   ["Horse Mushroom"],
   "Agaricus arvensis",
   ["grasslands", "meadows", "fields", "parks"],
-  ["grasslands", "meadows", "fields", "parks"],
+  [],
+  ["Images/Habitat/grasslands.jpg"],
   ["Images/Horse Mushroom/multiple.jpg"],
   ["Images/Horse Mushroom/cap.jpg"],
   ["Images/Horse Mushroom/gills.jpg"],
@@ -501,7 +541,8 @@ const horseMushroom = new Mushroom(
   [],
   "like any old mushroom",
   "common",
-  ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+  "May",
+  "Oct",
   false,
   true,
   false,
@@ -518,7 +559,8 @@ const horseMushroom = new Mushroom(
 const greyOyster = new Mushroom(
   ["Grey Oyster"],
   "Pleurotus ostreatus",
-  ["woods", "beech"],
+  ["woods"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Grey Oyster/multiple.jpg"],
   ["Images/Grey Oyster/cap.jpg"],
@@ -531,7 +573,8 @@ const greyOyster = new Mushroom(
   [],
   "pretty tough at the stem",
   "common",
-  ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+  "May",
+  "Nov",
   false,
   true,
   false,
@@ -549,6 +592,7 @@ const fairyRingChampignon = new Mushroom(
   ["Fairy Ring Champignon", "Fairy Ring Mushrooms", "Mouserron"],
   "Marasmius oreades",
   ["grasslands", "meadows", "fields", "parks"],
+  [],
   ["Images/Habitat/grasslands.jpg"],
   ["Images/Fairy Ring Champignon/multiple.jpg"],
   ["Images/Fairy Ring Champignon/cap.jpg"],
@@ -561,7 +605,8 @@ const fairyRingChampignon = new Mushroom(
   [],
   "like the flesh is pretty thin",
   "common",
-  ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Apr",
+  "Nov",
   false,
   true,
   false,
@@ -578,7 +623,8 @@ const fairyRingChampignon = new Mushroom(
 const porcelainFungus = new Mushroom(
   ["Porcelain Fungus"],
   "Oudemansiella mucida",
-  ["woodland", "beech"],
+  ["woodland"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Porcelain Fungus/multiple.jpg"],
   ["Images/Porcelain Fungus/cap.jpg"],
@@ -591,7 +637,8 @@ const porcelainFungus = new Mushroom(
   [],
   "thin and delicate, it's also slimy on the top",
   "common",
-  ["Aug", "Sep", "Oct", "Nov"],
+  "Aug",
+  "Nov",
   false,
   true,
   false,
@@ -608,7 +655,8 @@ const porcelainFungus = new Mushroom(
 const saffronMilkcap = new Mushroom(
   ["Saffron Milkcap"],
   "Lactarius deliciosus",
-  ["woods", "pine"],
+  ["woodland"],
+  ["pine"],
   ["Images/Habitat/pine woodland.jpg"],
   ["Images/Saffron Milkcap/multiple.jpg"],
   ["Images/Saffron Milkcap/cap.jpg"],
@@ -622,7 +670,8 @@ const saffronMilkcap = new Mushroom(
   [],
   "pretty normal",
   "common",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   true,
   false,
@@ -639,7 +688,8 @@ const saffronMilkcap = new Mushroom(
 const velvetShank = new Mushroom(
   ["Velvet Shank"],
   "Flammulina velutipes",
-  ["woods", "elm"],
+  ["woods"],
+  ["elm"],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Velvet Shank/multiple.jpg"],
   ["Images/Velvet Shank/cap.jpg"],
@@ -652,7 +702,8 @@ const velvetShank = new Mushroom(
   [],
   "almost slimey on the top and has a fuzzy, velvety stem",
   "common",
-  ["Dec", "Jan", "Feb", "Mar", "Apr"],
+  "Dec",
+  "Apr",
   false,
   true,
   false,
@@ -670,6 +721,7 @@ const libertyCap = new Mushroom(
   ["Liberty Cap", "Magic Mushroom"],
   "Psilocybe semilanceata",
   ["grasslands", "meadows", "fields"],
+  [],
   ["Images/Habitat/cow field.jpeg"],
   ["Images/Liberty Cap/multiple.jpg"],
   ["Images/Liberty Cap/cap.jpg"],
@@ -682,7 +734,8 @@ const libertyCap = new Mushroom(
   [],
   "spindly and delicate",
   "common",
-  ["Sep", "Oct", "Nov", "Dec"],
+  "Sep",
+  "Dec",
   false,
   false,
   true,
@@ -704,7 +757,8 @@ const greenCrackedRussula = new Mushroom(
     "Green Cracking Brittlegill",
   ],
   "Russula virescens",
-  ["woods", "beech"],
+  ["woods"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Green Cracked Russula/multiple.jpg"],
   ["Images/Green Cracked Russula/cap.jpg"],
@@ -716,8 +770,9 @@ const greenCrackedRussula = new Mushroom(
   [],
   [],
   "pretty solid, the gills break easily",
-  "uncommon",
-  ["Jul", "Aug", "Sep", "Oct"],
+  "not very common",
+  "Jul",
+  "Oct",
   true,
   true,
   false,
@@ -734,7 +789,8 @@ const greenCrackedRussula = new Mushroom(
 const commonYellowRussula = new Mushroom(
   ["Common Yellow Russula", "Common Yellow Brittlegill"],
   "Russula ochroleuca",
-  ["woods", "mixed"],
+  ["mixed woodland"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Common Yellow Russula/general.jpg"],
   ["Images/Common Yellow Russula/cap.jpg"],
@@ -747,7 +803,8 @@ const commonYellowRussula = new Mushroom(
   [],
   "pretty solid, the gills break easily",
   "common",
-  ["Aug", "Sep", "Oct", "Nov"],
+  "Aug",
+  "Nov",
   false,
   true,
   false,
@@ -764,7 +821,8 @@ const commonYellowRussula = new Mushroom(
 const yellowSwampRussula = new Mushroom(
   ["Yellow Swamp Russula"],
   "Russula claroflava",
-  ["woods", "mixed", "bogs", "birch"],
+  ["woodland", "bogs"],
+  ["birch"],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Yellow Swamp Russula/general.jpg"],
   ["Images/Yellow Swamp Russula/cap.jpg"],
@@ -776,8 +834,9 @@ const yellowSwampRussula = new Mushroom(
   [],
   [],
   "brittle, the stem snaps like chalk and the gills break off easily",
-  "uncommon",
-  ["Aug", "Sep", "Oct"],
+  "not very common",
+  "Aug",
+  "Oct",
   false,
   true,
   false,
@@ -794,7 +853,8 @@ const yellowSwampRussula = new Mushroom(
 const geraniumScentedRussula = new Mushroom(
   ["Geranium Scented Russula"],
   "Russula fellea",
-  ["woods", "beech"],
+  ["woodland"],
+  ["beech"],
   ["Images/Habitat/beech woodland.jpg"],
   ["Images/Geranium Scented Russula/general.jpg"],
   ["Images/Geranium Scented Russula/cap.jpg"],
@@ -807,7 +867,8 @@ const geraniumScentedRussula = new Mushroom(
   [],
   "brittle, the stem snaps like chalk and the gills break off easily",
   "common",
-  ["Aug", "Sep", "Oct", "Nov"],
+  "Aug",
+  "Nov",
   false,
   false,
   true,
@@ -824,7 +885,8 @@ const geraniumScentedRussula = new Mushroom(
 const cep = new Mushroom(
   ["Cep", "Penny Bun", "Porcini", "King Bolete"],
   "Boletus edulis",
-  ["woods", "beech", "oak", "pine"],
+  ["woodland"],
+  ["beech", "oak", "pine"],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Cep/general.jpg"],
   ["Images/Cep/cap.jpg"],
@@ -837,7 +899,8 @@ const cep = new Mushroom(
   [],
   "pretty solid",
   "common",
-  ["Aug", "Sep", "Oct"],
+  "Aug",
+  "Oct",
   false,
   true,
   false,
@@ -854,7 +917,8 @@ const cep = new Mushroom(
 const falseMorel = new Mushroom(
   ["False Morel"],
   "	Gyromitra esculenta",
-  ["woods", "pine"],
+  ["woodland"],
+  ["pine"],
   ["Images/Habitat/pine woodland.jpg"],
   ["Images/False Morel/multiple.jpg"],
   ["Images/False Morel/cap.jpg"],
@@ -867,7 +931,8 @@ const falseMorel = new Mushroom(
   [],
   "pretty much like it looks",
   "uncommon",
-  ["Mar", "Apr", "May"],
+  "Mar",
+  "May",
   false,
   false,
   true,
@@ -884,7 +949,8 @@ const falseMorel = new Mushroom(
 const devilsBolete = new Mushroom(
   ["Devil's Bolete"],
   "Rubroboletus satanas",
-  ["woods", "oak", "beech"],
+  ["woodland"],
+  ["oak", "beech"],
   ["Images/Habitat/pine woodland.jpg"],
   ["Images/Devil's Bolete/general.jpg"],
   ["Images/Devil's Bolete/cap.jpg"],
@@ -897,7 +963,8 @@ const devilsBolete = new Mushroom(
   [],
   "kinda spogey on the cap but otherwise pretty normal",
   "very rare",
-  ["Jul", "Aug", "Sep"],
+  "Jul",
+  "Sep",
   false,
   false,
   true,
@@ -915,7 +982,8 @@ const devilsBolete = new Mushroom(
 const scarletinaBolete = new Mushroom(
   ["Scarletina Bolete"],
   "Boletus luridiformis",
-  ["woods", "mixed", "beech", "oak", "conifer"],
+  ["woodland"],
+  ["beech", "oak", "conifer"],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Scarletina Bolete/multiple.jpg"],
   ["Images/Scarletina Bolete/cap.jpg"],
@@ -928,7 +996,8 @@ const scarletinaBolete = new Mushroom(
   [],
   "kinda spogey on the cap but otherwise pretty normal",
   "common",
-  ["Jul", "Aug", "Sep", "Oct"],
+  "Jul",
+  "Oct",
   false,
   true,
   false,
@@ -946,7 +1015,8 @@ const scarletinaBolete = new Mushroom(
 const bayBolete = new Mushroom(
   ["Bay Bolete"],
   "Boletus badius",
-  ["woods", "mixed"],
+  ["mixed woodland"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Bay Bolete/multiple.jpg"],
   ["Images/Bay Bolete/cap.jpg"],
@@ -959,7 +1029,8 @@ const bayBolete = new Mushroom(
   [],
   "a little on the soft side",
   "common",
-  ["Aug", "Sep", "Oct", "Nov"],
+  "Aug",
+  "Nov",
   false,
   true,
   false,
@@ -977,7 +1048,8 @@ const bayBolete = new Mushroom(
 const commonPuffball = new Mushroom(
   ["Common Puffball"],
   "Lycoperdon perlatum",
-  ["woods", "mixed"],
+  ["mixed woodland"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Common Puffball/multiple.jpg"],
   ["Images/Common Puffball/cap.jpg"],
@@ -990,7 +1062,8 @@ const commonPuffball = new Mushroom(
   [],
   "spongy and the little spines rub of pretty easily",
   "very common",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   true,
   false,
@@ -1007,7 +1080,8 @@ const commonPuffball = new Mushroom(
 const stumpPuffball = new Mushroom(
   ["Stump Puffball"],
   "Lycoperdon pyriforme",
-  ["woods", "mixed"],
+  ["mixed woodland"],
+  [],
   ["Images/Habitat/mixed woodland.jpg"],
   ["Images/Stump Puffball/multiple.jpg"],
   ["Images/Stump Puffball/cap.jpg"],
@@ -1020,7 +1094,8 @@ const stumpPuffball = new Mushroom(
   [],
   "spongy",
   "very common",
-  ["Jul", "Aug", "Sep", "Oct", "Nov"],
+  "Jul",
+  "Nov",
   false,
   true,
   false,
@@ -1037,7 +1112,8 @@ const stumpPuffball = new Mushroom(
 const giantPuffball = new Mushroom(
   ["Giant Puffball"],
   "Calvatia gigantea",
-  ["grass", "pasture", "meadows", "nettle beds"],
+  ["grasslands", "pastures", "meadows", "nettle beds"],
+  [],
   ["Images/Habitat/grasslands.jpg"],
   ["Images/Giant Puffball/multiple.jpg"],
   ["Images/Giant Puffball/cap.jpg"],
@@ -1049,8 +1125,9 @@ const giantPuffball = new Mushroom(
   [],
   [],
   "smooth and papery",
-  "frequency",
-  ["Months", "Available"],
+  "fairly common",
+  "Jul",
+  "Sep",
   false,
   true,
   false,
@@ -1067,7 +1144,8 @@ const giantPuffball = new Mushroom(
 const meadowWaxcap = new Mushroom(
   ["Meadow Waxcap"],
   "Cuphophyllus/Hygrocybe pratensis",
-  ["grass", "pasture", "meadows"],
+  ["grasslands", "pastures", "meadows"],
+  [],
   ["Images/Habitat/grasslands.jpg"],
   ["Images/Meadow Waxcap/multiple.jpg"],
   ["Images/Meadow Waxcap/cap.jpg"],
@@ -1080,7 +1158,8 @@ const meadowWaxcap = new Mushroom(
   [],
   "thick and waxy",
   "common",
-  ["Sep", "Oct", "Nov", "Dec"],
+  "Sep",
+  "Dec",
   false,
   true,
   false,
@@ -1094,12 +1173,87 @@ const meadowWaxcap = new Mushroom(
   8
 );
 
+const greySpottedAmanita = new Mushroom(
+  ["Grey Spotted Amanita"],
+  "Amanita excelsa",
+  ["mixed woodland"],
+  [],
+  ["Images/Habitat/mixed woodland.jpg"],
+  ["Images/Grey Spotted Amanita/multiple.jpg"],
+  ["Images/Grey Spotted Amanita/cap.jpg"],
+  ["Images/Grey Spotted Amanita/gills.jpg"],
+  ["Images/Grey Spotted Amanita/stem.jpg"],
+  ["Images/Grey Spotted Amanita/dig.jpg"],
+  ["Images/Grey Spotted Amanita/cut.jpg"],
+  [],
+  [],
+  [],
+  "like any old mushroom",
+  "common",
+  "Jul",
+  "Oct",
+  false,
+  true,
+  false,
+  false,
+  false,
+  [pantherCap, theBlusher],
+  false,
+  false,
+  false,
+  10,
+  12
+);
+
+const yellowMorel = new Mushroom(
+  ["Yellow Morel", "True Morel"],
+  "Morchella esculenta",
+  [
+    "open woods",
+    "pastures",
+    "gardens",
+    "wasteland",
+    "gravel",
+    "verges",
+    "fields",
+    "sand dunes",
+  ],
+  [],
+  ["Images/Habitat/grasslands.jpg"],
+  ["Images/Yellow Morel/general.jpg"],
+  ["Images/Yellow Morel/cap.jpg"],
+  [],
+  ["Images/Yellow Morel/stem.jpg"],
+  ["Images/Yellow Morel/dig.jpg"],
+  ["Images/Yellow Morel/cut.jpg"],
+  [],
+  [],
+  [],
+  "fairly thin and hollow",
+  "not very common",
+  "Mar",
+  "May",
+  false,
+  true,
+  false,
+  false,
+  false,
+  [falseMorel, "Black Morel", commonMorel],
+  true,
+  false,
+  false,
+  15,
+  20,
+  "ochre or rusty orange"
+);
+
 //////////TEMPLATE////////////////////
 
 // const commonName = new Mushroom(
 //   ["Common Name"],
 //   "Latin name",
-//   ["woods/grass", "treetypeetc"],
+//   ["habitat e.g. woodland"],
+//   ["treetype"]
 //   [habitat images],
 //   [general images],
 //   [cap images],
@@ -1112,7 +1266,8 @@ const meadowWaxcap = new Mushroom(
 //   [spore print images],
 //   "feel",
 //   "frequency",
-//   ["Months", "Available"],
+//   "SeasonStart",
+//   "SeasonEnd",
 //   edibleRaw,
 //   edibleCooked,
 //   poisonous,
@@ -1163,6 +1318,9 @@ const mushrooms = [
   commonPuffball,
   stumpPuffball,
   giantPuffball,
+  meadowWaxcap,
+  greySpottedAmanita,
+  yellowMorel,
 ];
 
 //////////Elements
@@ -1173,6 +1331,7 @@ const answerContainer = document.querySelector(".answer-container");
 const answerDisplay = document.querySelector(".answer-display");
 const answerName = document.querySelector(".answer-name");
 const answerLatin = document.querySelector(".answer-latin");
+const answerOtherNames = document.querySelector(".answer-other-names");
 const answerInfo = document.querySelector(".answer-info");
 const mainContainer = document.querySelector(".main-container");
 const overlayContainer = document.querySelector(".overlay-container");
@@ -1207,7 +1366,8 @@ const init = function () {
 
 const loadRandom = function () {
   //set currentMushroom
-  currentMushroom = mushrooms[Math.floor(Math.random() * mushrooms.length)];
+  currentMushroom = yellowMorel;
+  //mushrooms[Math.floor(Math.random() * mushrooms.length)];
   // set the initial image to a random from multiple
   mushroomImage.setAttribute("src", currentMushroom.generalImages[0]);
   ///TODO POSSIBLY REMOVE COMMENTS
@@ -1230,15 +1390,6 @@ btnUnderCap.addEventListener("click", function () {
     ? mushroomImage.setAttribute("src", currentMushroom.gillImages[0])
     : alert("That doesn't make sense");
 });
-
-// habitatImages,
-// generalImages,
-// capImages,
-// gillImages,
-// stemImages,
-// volvaImages,
-// cutImages,
-// bruiseImages,
 
 btnStem.addEventListener("click", function () {
   currentMushroom.stemImages[0]
@@ -1278,8 +1429,7 @@ btnRevealAnswer.addEventListener("click", function () {
   if (nextMushroom) {
     nextMushroom = !nextMushroom;
     btnRevealAnswer.textContent = "Reveal Answer";
-    answerName.textContent = "";
-    answerInfo.textContent = "";
+
     answerDisplay.style.display = "none";
     window.scrollTo({
       top: 0,
@@ -1303,9 +1453,52 @@ btnRevealAnswer.addEventListener("click", function () {
         "likely won't poison you (unless you're one of those unlucky people who react to it) but it doesnt taste nice anyway 🤮";
     }
 
+    const arrayToSentence = function (array, conjunction) {
+      let sentence = `${array[0]}`;
+
+      if (array.length > 2) {
+        array.forEach((el, i) => {
+          if (i != 0 && i != array.length - 1) {
+            sentence += `, ${el}`;
+          }
+        });
+      }
+      if (array.length >= 2) {
+        sentence += ` ${conjunction} ${array[array.length - 1]}`;
+      }
+      return sentence;
+    };
+
+    const habitatSentence = function () {
+      return `You'll usually find it in ${arrayToSentence(
+        currentMushroom.habitat,
+        "and"
+      )}${
+        currentMushroom.treeType[0]
+          ? ", especially where you find " +
+            arrayToSentence(currentMushroom.treeType, "or") +
+            " trees."
+          : "."
+      }`;
+    };
+
     answerName.textContent = `${currentMushroom.commonNames[0]}`;
-    answerLatin.textContent = `(${currentMushroom.latinName})`;
-    answerInfo.textContent = `This mushroom ${edibilityDetail}`;
+
+    answerLatin.textContent = `${currentMushroom.latinName}`;
+    answerOtherNames.textContent = "";
+    if (currentMushroom.commonNames.length > 1) {
+      let text = "(Also known as: ";
+      let otherNames = currentMushroom.commonNames;
+      otherNames.shift();
+
+      answerOtherNames.textContent =
+        text + arrayToSentence(otherNames, "or") + ")";
+    }
+    answerInfo.textContent = `This mushroom ${edibilityDetail}. ${habitatSentence()} The ${
+      currentMushroom.commonNames[0]
+    } is ${currentMushroom.frequency} in the UK from ${
+      currentMushroom.seasonStart
+    } - ${currentMushroom.seasonEnd}. `;
     answerDisplay.style.display = "block";
     btnRevealAnswer.textContent = "Next Mushroom!";
     window.scrollTo({
@@ -1313,10 +1506,9 @@ btnRevealAnswer.addEventListener("click", function () {
       behavior: "smooth",
     });
     nextMushroom = !nextMushroom;
-    // answerName.style.backgroundColor = "#552700";
-    // answerInfo.style.backgroundColor = "#552700";
   }
 });
 /////////////////////main/////////////////////////
-console.log(theCharcoalBurner.bruises);
 init();
+
+//to do - habitat sentence only includes first tree type
