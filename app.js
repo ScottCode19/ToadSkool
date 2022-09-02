@@ -1327,17 +1327,11 @@ const mushrooms = [
 
 const mushroomImage = document.querySelector(".main-image");
 const titleWelcome = document.querySelector(".welcome-title");
-const answerContainer = document.querySelector(".answer-container");
-const answerDisplay = document.querySelector(".answer-display");
-const answerName = document.querySelector(".answer-name");
-const answerLatin = document.querySelector(".answer-latin");
-const answerOtherNames = document.querySelector(".answer-other-names");
-const answerInfo = document.querySelector(".answer-info");
+
 const mainContainer = document.querySelector(".main-container");
 const overlayContainer = document.querySelector(".overlay-container");
 const appContainer = document.querySelector(".app-container");
 
-const btnRevealAnswer = document.querySelector(".btn-reveal-answer");
 const btnPlay = document.querySelector(".btn-play");
 const btnCap = document.querySelector(".btn-cap");
 const btnUnderCap = document.querySelector(".btn-under-cap");
@@ -1346,8 +1340,15 @@ const btnFeel = document.querySelector(".btn-feel");
 const btnBruise = document.querySelector(".btn-bruise");
 const btnDig = document.querySelector(".btn-dig");
 const btnCut = document.querySelector(".btn-cut");
-const btnTouchGills = document.querySelector(".btn-touch-gills");
-const btnSporePrint = document.querySelector(".btn-sporeprint");
+
+const btnRevealAnswer = document.querySelector(".btn-reveal-answer");
+
+const answerContainer = document.querySelector(".answer-container");
+const answerDisplay = document.querySelector(".answer-display");
+const answerName = document.querySelector(".answer-name");
+const answerLatin = document.querySelector(".answer-latin");
+const answerOtherNames = document.querySelector(".answer-other-names");
+const answerInfo = document.querySelector(".answer-info");
 
 ////////global variables
 let currentMushroom;
@@ -1507,6 +1508,120 @@ btnRevealAnswer.addEventListener("click", function () {
     nextMushroom = !nextMushroom;
   }
 });
+
+//Game Type
+
+const gameTypeContainer = document.querySelector(".game-type-container");
+
+const searchSection = document.querySelector(".search-section");
+
+let currentGameType = "reveal answer";
+
+gameTypeContainer.addEventListener("click", (e) => {
+  if (e.target) {
+    if (
+      e.target.value === "search and guess" &&
+      currentGameType === "reveal answer"
+    ) {
+      answerContainer.classList.toggle("hidden");
+      searchSection.classList.toggle("hidden");
+
+      currentGameType = "search and guess";
+    }
+    if (
+      e.target.value === "reveal answer" &&
+      currentGameType === "search and guess"
+    ) {
+      answerContainer.classList.toggle("hidden");
+      searchSection.classList.toggle("hidden");
+      currentGameType = "reveal answer";
+    }
+  }
+});
+// Search Functionality
+
+const searchField = document.querySelector("#searchBar");
+const searchable = [];
+mushrooms.forEach((mushroom) => {
+  searchable.push(mushroom.commonNames[0]);
+});
+
+const resultsContainer = document.querySelector(".results-container");
+
+const resultsBox = document.querySelector(".results");
+
+const resultsBoxHMTL = `<div class="_"></div>`;
+
+const resultsLabel = document.querySelector(".results-label");
+
+const correctIcon = document.querySelector(".correct-icon");
+
+const wrongIcon = document.querySelector(".wrong-icon");
+
+const addResult = function (result) {
+  const html = `<div class="result">${result}</div>`;
+  resultsBox.insertAdjacentHTML("beforeend", html);
+};
+
+const answerCheckAlertContainer = document.querySelector(
+  ".answer-check-alert-container"
+);
+
+const answerCheckAlertText = document.querySelector(".answer-check-alert-text");
+
+const answerCheckAlertClose = document.querySelector(
+  ".answer-check-alert-close"
+);
+
+answerCheckAlertContainer.style.display = "none";
+
+searchField.addEventListener("keyup", (e) => {
+  //clears the answers
+  resultsBox.innerHTML = resultsBoxHMTL;
+  //if search matches add the mushroom
+  searchable.forEach((item) => {
+    if (
+      item.toLowerCase().includes(searchField.value.toLowerCase()) &&
+      searchField.value !== ""
+    ) {
+      addResult(item);
+    }
+  });
+});
+
+let prevAnswer;
+
+resultsBox.addEventListener("click", (e) => {
+  // show the answer container
+  answerCheckAlertContainer.style.display = "flex";
+  if (e.target.innerHTML === currentMushroom.commonNames[0]) {
+    correctIcon.style.display = "inherit";
+    wrongIcon.style.display = "none";
+    answerCheckAlertText.textContent =
+      "Well done, you're such a clever sausage";
+    searchBar.value = "";
+    prevAnswer = true;
+  } else {
+    correctIcon.style.display = "none";
+    wrongIcon.style.display = "inherit";
+    answerCheckAlertText.textContent = "Nope, try again";
+    searchBar.value = "";
+    prevAnswer = false;
+  }
+  resultsBox.innerHTML = resultsBoxHMTL;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+answerCheckAlertClose.addEventListener("click", (e) => {
+  answerCheckAlertContainer.style.display = "none";
+  if (prevAnswer) {
+    loadRandom();
+  }
+});
+
 /////////////////////main/////////////////////////
 init();
 

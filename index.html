@@ -7,6 +7,7 @@
     <title>ToadSkool</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/media.css" />
+    <script defer src="app.js"></script>
   </head>
   <body>
     <div class="overlay-container">
@@ -32,7 +33,7 @@
     </div>
     <div class="app-container">
       <header>
-        <h1 class="main-title">🍄 ToadSkool 🍄</h1>
+        <h1 class="main-title">ToadSkool</h1>
       </header>
       <div class="img-container">
         <img
@@ -58,6 +59,29 @@
           <button class="btn btn-actions btn-cut">Cut it up</button>
         </div>
       </div>
+
+      <div class="game-type-container">
+        <div>
+          <input
+            type="radio"
+            id="reveal-answer"
+            name="game-type"
+            value="reveal answer"
+            checked
+          />
+          <label for="reveal-answer">Reveal Answer</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="search"
+            name="game-type"
+            value="search and guess"
+          />
+          <label for="search">Search and Guess</label>
+        </div>
+      </div>
       <div class="answer-container" id="answer-container">
         <button class="btn-reveal-answer">REVEAL ANSWER</button>
         <div class="answer-display">
@@ -71,7 +95,35 @@
           </div>
         </div>
       </div>
-    </div>
-    <script src="app.js"></script>
+      <section class="search-section hidden">
+        <input
+          type="text"
+          name=""
+          id="searchBar"
+          placeholder="Start typing here..."
+        />
+        <div class="results-container">
+          <div class="results-label"></div>
+          <div class="results"></div>
+        </div>
+        <div class="answer-check-alert-container">
+          <div class="answer-check-alert ">
+            <svg xmlns="http://www.w3.org/2000/svg" class="correct-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="wrong-icon hidden" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+            <div class="answer-check-alert-text">
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="answer-check-alert-close" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+
+        </div>
+    
+    
+    </section>
   </body>
 </html>
